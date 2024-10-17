@@ -1,21 +1,57 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 /**
  * Write a description of class InstructionScreen here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Zheng
+ * @version October 2024
  */
-public class InstructionScreen extends World
+public class InstructionScreen extends World  
 {
 
+    showInstructions();
+        
+    private World home;
+    private int currentIndex = 0;
+    private Label instructionLabel; 
+    // array to hold the instructions
+    private String[] allText = { "Screen 0", "Screen 1", "Screen 2" };
+    
     /**
-     * Constructor for objects of class InstructionScreen.
-     * 
+     * Constructor for objects of class InstructionScreen
      */
-    public InstructionScreen()
-    {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+    public InstructionScreen(World home)
+    {
+        super(600, 400, 1);
+        this.home = home;
+        instructionLabel = new Label(allText[currentIndex], 50);
+        addObject(instructionLabel, 300, 200);
+        // Next button
+        addObject(new Button(this::nextScreen), 500, 350);
+
+        // Back button
+        addObject(new Button(this::prevScreen), 100, 350);   
+
     }
+
+
+
+    private void nextScreen() {
+        // Allow if within bounds of the array
+        if (currentIndex >= allText.length - 1) {
+          return;
+        }
+        currentIndex++;
+        instructionLabel.setValue(allText[currentIndex]);
+      }
+    
+      private void prevScreen() {
+        // Exit if at the first screen
+        if (currentIndex == 0) {
+          Greenfoot.setWorld(home);
+          return;
+        } else {
+          currentIndex--;
+          instructionLabel.setValue(allText[currentIndex]);
+        }
+
+
 }
