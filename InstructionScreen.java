@@ -1,22 +1,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MenuScreen here.
+ * Write a description of class InstructionScreen here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MenuScreen extends World
+public class InstructionScreen extends World
 {
 
     /**
-     * Constructor for objects of class MenuScreen.
+     * Constructor for objects of class InstructionScreen.
      * 
      */
-    public MenuScreen()
+    public InstructionScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        
     }
 }
