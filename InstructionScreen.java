@@ -21,7 +21,7 @@ public class InstructionScreen extends World
     {
         super(600, 400, 1);
         this.home = home;
-        instructionLabel = new Label(allText[currentIndex], 50);
+        instructionLabel = new Label(getInstruction(currentIndex), 50);
         addObject(instructionLabel, 300, 200);
         // Next button
         addObject(new Button(this::nextScreen), 500, 350);
@@ -30,7 +30,10 @@ public class InstructionScreen extends World
         addObject(new Button(this::prevScreen), 100, 350);   
 
     }
-
+    
+    private String getInstruction(int index) {
+      return "Screen " + index; 
+    }
 
 
     private void nextScreen() {
