@@ -38,11 +38,13 @@ public class InstructionScreen extends World
 
     private void nextScreen() {
         // Allow if within bounds of the array
+        /*
         if (currentIndex >= allText.length - 1) {
           return;
         }
+        */
         currentIndex++;
-        instructionLabel.setValue(allText[currentIndex]);
+        instructionLabel.setValue(getInstruction(currentIndex));
       }
     
       private void prevScreen() {
@@ -52,7 +54,7 @@ public class InstructionScreen extends World
           return;
         } else {
           currentIndex--;
-          instructionLabel.setValue(allText[currentIndex]);
+          instructionLabel.setValue(getInstruction(currentIndex));
         }
     }
 
