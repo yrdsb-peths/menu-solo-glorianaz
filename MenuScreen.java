@@ -8,25 +8,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MenuScreen extends World
 {
-    
-    /**
-     * Constructor for objects of class MenuScreen.
-     * 
-     */
-    MenuScreen currentMenu = this;
-
     public MenuScreen() {
         super(600, 400, 1);
-        
-        Button instructionButton = new Button(new Runnable() {
-            public void run() {
-                Greenfoot.setWorld(new InstructionScreen(MenuScreen.this));
-            }
-        });
-        addObject(instructionButton, 300, 340);
+
+        //addObject(new Button(this::goInstructions), 300, 340);
+        addObject(new Button(() -> Greenfoot.setWorld(new InstructionScreen(this))), 300, 340);
     }
 
-    
-    
-    
+    public void goInstructions() {
+        Greenfoot.setWorld(new InstructionScreen(this));
+    }
+
 }
+
+

@@ -1,3 +1,4 @@
+import greenfoot.*;
 /**
  * Write a description of class InstructionScreen here.
  * 
@@ -6,13 +7,11 @@
  */
 public class InstructionScreen extends World  
 {
-
-    showInstructions();
         
     private World home;
     private int currentIndex = 0;
     private Label instructionLabel; 
-    // array to hold the instructions
+    // a/rray to hold the instructions
     private String[] allText = { "Screen 0", "Screen 1", "Screen 2" };
     
     /**
@@ -52,6 +51,6 @@ public class InstructionScreen extends World
           currentIndex--;
           instructionLabel.setValue(allText[currentIndex]);
         }
-
+    }
 
 }
