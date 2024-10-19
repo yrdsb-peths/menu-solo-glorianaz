@@ -22,7 +22,7 @@ public class InstructionScreen extends World
     {
         super(600, 400, 1);
         this.home = home;
-        instructions = new Label("Use Butons to Navigate through screens", 40);
+        instructions = new Label("Use Butons to Navigate through screens", 20);
         addObject(instructions, 300, 100);
         instructionLabel = new Label(getInstruction(currentIndex), 50);
         addObject(instructionLabel, 300, 200);
