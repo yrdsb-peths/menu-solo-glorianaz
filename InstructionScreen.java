@@ -11,6 +11,7 @@ public class InstructionScreen extends World
     private World home;
     private int currentIndex = 0;
     private Label instructionLabel; 
+    private Label instructions;
     // a/rray to hold the instructions
     private String[] allText = { "Screen 0", "Screen 1", "Screen 2" };
     
@@ -21,6 +22,8 @@ public class InstructionScreen extends World
     {
         super(600, 400, 1);
         this.home = home;
+        instructions = new Label("Use Butons to Navigate through screens", 40);
+        addObject(instructions, 300, 100);
         instructionLabel = new Label(getInstruction(currentIndex), 50);
         addObject(instructionLabel, 300, 200);
         // Next button
