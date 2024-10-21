@@ -22,6 +22,7 @@ public class InstructionScreen extends World
      */
     public InstructionScreen(World home)
     {
+      // create a new world 
         super(600, 400, 1);
         this.home = home;
         instructions = new Label("Use Buttons to Navigate through screens", 30);
@@ -30,9 +31,17 @@ public class InstructionScreen extends World
         addObject(instructionLabel, 300, 200);
         // Next button
         addObject(new Button(this::nextScreen), 500, 350);
-
+        Label goNext = new Label("next", 20);
+        addObject(goNext, 100, 260);
         // Back button
-        addObject(new Button(this::prevScreen), 100, 350);   
+        addObject(new Button(this::prevScreen), 100, 350);  
+        Label goBack = new Label("back", 20); 
+        addObject(goBack, 100, 260);
+
+        // go back to menu screen 
+        addObject(new Button(this:: backMenu), 100, 370);
+        backMenuLabel = new Label("Return to Menu", 20);
+        addObject(backMenuLabel, 100, 350);
 
     }
     
@@ -43,8 +52,12 @@ public class InstructionScreen extends World
 
 
     private void nextScreen() {
-        currentIndex++;
-        instructionLabel.setValue(getInstruction(currentIndex));
+        if(currentIndex < allText.length - 1)
+        {
+          currentIndex++;
+        }
+        
+        instructionLabel.setValue(allText[currentIndex]);
       }
     
       private void prevScreen() {
@@ -54,8 +67,12 @@ public class InstructionScreen extends World
           return;
         } else {
           currentIndex--;
-          instructionLabel.setValue(getInstruction(currentIndex));
+          instructionLabel.setValue(allText(currentIndex));
         }
     }
-
+    
+    private void backMenu()
+    {
+      Greenfoot.setWorld(home);
+    }
 }
