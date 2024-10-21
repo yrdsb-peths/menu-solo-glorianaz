@@ -20,7 +20,8 @@ public class MenuScreen extends World
     }
 
     
-
+    AvatarManager avatarManager = new AvatarManager();
+    // addObject(avatarManager,300, 100);
 }
 
 

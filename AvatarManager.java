@@ -14,9 +14,9 @@ public class AvatarManager extends Actor
     // current avatar 
     private Avatar current;
 
-    public AvatarManger()
+    public AvatarManager()
     {
-        setImage(getImage() null);
+        setImage((GreenfootImage) null);
         avatars.enqueue(new Avatar("mario.png"));
         avatars.enqueue(new Avatar("luigi.png"));
         avatars.enqueue(new Avatar("bowser.png"));
@@ -40,18 +40,15 @@ public class AvatarManager extends Actor
         {
             getWorld().removeObject(current);
         }
-        world.addObject(current, x, y);
+        getWorld().addObject(current, x, y);
     }
 
     public void nextAvatar()
     {
         avatars.enqueue(current);
         getWorld().removeObject(current);
-        current = avatars.dequeue;
+        current = avatars.dequeue();
         updateAvatar();
     }
-    public void act()
-    {
-        // Add your action code here.
-    }
+    
 }
