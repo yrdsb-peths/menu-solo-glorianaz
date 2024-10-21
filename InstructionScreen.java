@@ -9,13 +9,15 @@ public class InstructionScreen extends World
 {
         
     private World home;
-    private int currentIndex = 0;
-    private Label instructionLabel; 
+  
     private Label instructions;
     
-    //private String[] allText = { "Screen 0", "Screen 1", "Screen 2" };
+    private String[] allText = { "Screen 0", "Screen 1", "Screen 2" };
     
-    /**
+    private int currentIndex = 0;
+    private Label instructionLabel = new Label(allText[currentIndex], 50); 
+
+    /*
      * Constructor for objects of class InstructionScreen
      */
     public InstructionScreen(World home)
@@ -24,7 +26,7 @@ public class InstructionScreen extends World
         this.home = home;
         instructions = new Label("Use Buttons to Navigate through screens", 30);
         addObject(instructions, 300, 100);
-        instructionLabel = new Label(getInstruction(currentIndex), 50);
+        // instructionLabel = new Label(getInstruction(currentIndex), 50);
         addObject(instructionLabel, 300, 200);
         // Next button
         addObject(new Button(this::nextScreen), 500, 350);
@@ -35,7 +37,8 @@ public class InstructionScreen extends World
     }
     
     private String getInstruction(int index) {
-      return "Screen " + index; 
+        return "Screen " + index; 
+
     }
 
 
