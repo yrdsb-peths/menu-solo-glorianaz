@@ -15,7 +15,7 @@ public class InstructionScreen extends World
     private String[] allText = { "Screen 0", "Screen 1", "Screen 2" };
     
     private int currentIndex = 0;
-    private Label instructionLabel new Label(allText[currentIndex], 50); 
+    private Label instructionLabel = new Label(allText[currentIndex], 50); 
 
     /*
      * Constructor for objects of class InstructionScreen
