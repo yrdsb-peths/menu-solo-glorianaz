@@ -17,6 +17,7 @@ public class AvatarManager extends Actor
     public AvatarManager()
     {
         setImage((GreenfootImage) null);
+
         avatars.enqueue(new Avatar("mario.png"));
         avatars.enqueue(new Avatar("luigi.png"));
         avatars.enqueue(new Avatar("bowser.png"));
@@ -34,7 +35,7 @@ public class AvatarManager extends Actor
     public void updateAvatar()
     {
         int x = 300;
-        int y = 100;
+        int y = 80;
 
         if(current != null)
         {
