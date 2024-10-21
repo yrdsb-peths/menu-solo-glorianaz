@@ -12,8 +12,8 @@ public class InstructionScreen extends World
     private int currentIndex = 0;
     private Label instructionLabel; 
     private Label instructions;
-    // a/rray to hold the instructions
-    private String[] allText = { "Screen 0", "Screen 1", "Screen 2" };
+    
+    //private String[] allText = { "Screen 0", "Screen 1", "Screen 2" };
     
     /**
      * Constructor for objects of class InstructionScreen
@@ -22,7 +22,7 @@ public class InstructionScreen extends World
     {
         super(600, 400, 1);
         this.home = home;
-        instructions = new Label("Use Butons to Navigate through screens", 20);
+        instructions = new Label("Use Buttons to Navigate through screens", 30);
         addObject(instructions, 300, 100);
         instructionLabel = new Label(getInstruction(currentIndex), 50);
         addObject(instructionLabel, 300, 200);
@@ -40,12 +40,6 @@ public class InstructionScreen extends World
 
 
     private void nextScreen() {
-        // Allow if within bounds of the array
-        /*
-        if (currentIndex >= allText.length - 1) {
-          return;
-        }
-        */
         currentIndex++;
         instructionLabel.setValue(getInstruction(currentIndex));
       }
