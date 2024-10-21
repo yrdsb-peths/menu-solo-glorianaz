@@ -12,8 +12,9 @@ public class InstructionScreen extends World
   
     private Label instructions;
     
-    private String[] allText = { "Screen 0", "Screen 1", "Screen 2" };
+    private String[] allText = { "Screen 0", "Screen 1", "Screen 2", "Screen 3" };
     
+    // index of current Label
     private int currentIndex = 0;
     private Label instructionLabel = new Label(allText[currentIndex], 50); 
 
@@ -27,36 +28,24 @@ public class InstructionScreen extends World
         this.home = home;
         instructions = new Label("Use Buttons to Navigate through screens", 30);
         addObject(instructions, 300, 100);
-        // instructionLabel = new Label(getInstruction(currentIndex), 50);
+        
         addObject(instructionLabel, 300, 200);
         // Next button
         addObject(new Button(this::nextScreen), 500, 350);
-        Label goNext = new Label("next", 20);
-        addObject(goNext, 100, 260);
+        
         // Back button
         addObject(new Button(this::prevScreen), 100, 350);  
-        Label goBack = new Label("back", 20); 
-        addObject(goBack, 100, 260);
-
-        // go back to menu screen 
-        addObject(new Button(this:: backMenu), 100, 370);
-        backMenuLabel = new Label("Return to Menu", 20);
-        addObject(backMenuLabel, 100, 350);
-
+        
     }
     
-    private String getInstruction(int index) {
-        return "Screen " + index; 
-
-    }
-
-
+    
+  
     private void nextScreen() {
-        if(currentIndex < allText.length - 1)
+        if(currentIndex >= allText.length - 1)
         {
-          currentIndex++;
+          return;
         }
-        
+        currentIndex++;
         instructionLabel.setValue(allText[currentIndex]);
       }
     
@@ -67,7 +56,7 @@ public class InstructionScreen extends World
           return;
         } else {
           currentIndex--;
-          instructionLabel.setValue(allText(currentIndex));
+          instructionLabel.setValue(allText[currentIndex]);
         }
     }
     
