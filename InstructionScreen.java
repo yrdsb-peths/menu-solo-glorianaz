@@ -26,7 +26,7 @@ public class InstructionScreen extends World
       // create a new world 
         super(600, 400, 1);
         this.home = home;
-        instructions = new Label("Use Buttons to Navigate through screens", 30);
+        instructions = new Label("Use Buttons to Navigate through instruction screens", 20);
         addObject(instructions, 300, 100);
         
         addObject(instructionLabel, 300, 200);

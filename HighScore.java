@@ -1,6 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Write a description of class HighScore here.
@@ -40,7 +42,11 @@ public class HighScore extends World
     private void addScores(){
         int y = 150;
         
-        for (Map.Entry<String, Integer> entry : highScores.entrySet()) 
+        List<Map.Entry<String, Integer>> sorted = new ArrayList<>(highScores.entrySet());
+        sorted.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
+
+        
+        for (Map.Entry<String, Integer> entry : sorted) 
         {
           String text = entry.getKey() + ": " + entry.getValue();
           Label scoreLabel = new Label(text, 24);
