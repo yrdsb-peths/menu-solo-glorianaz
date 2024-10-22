@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MenuScreen extends World
 {
     Label avatarLabel;
+    Label highScoreButtonLabel;
     public MenuScreen() 
     {
         super(600, 400, 1);
@@ -18,9 +19,17 @@ public class MenuScreen extends World
         AvatarManager avatarManager = new AvatarManager();
         addObject(avatarManager,300, 100); 
         avatarLabel = new Label("Choose your character!", 18);
-        addObject(avatarLabel, 300, 160);
+        addObject(avatarLabel, 300, 163);
+        
+        addObject(new Button(() -> goHighScores()), 300, 275);
+        highScoreButtonLabel = new Label("View High Scores", 18);
+        addObject(highScoreButtonLabel, 300, 240);
     }
-
+    
+    public void goHighScores()
+    {
+        Greenfoot.setWorld(new HighScore(this));
+    }
    
 }
 
