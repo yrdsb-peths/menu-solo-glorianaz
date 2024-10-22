@@ -10,10 +10,13 @@ public class MenuScreen extends World
 {
     Label avatarLabel;
     Label highScoreButtonLabel;
+    Label instructionLabel;
     public MenuScreen() 
     {
         super(600, 400, 1);
 
+        instructionLabel = new Label("View Instructions", 300, 18);
+        addObject(instructionLabel, 300, 320);
         addObject(new Button(() -> Greenfoot.setWorld(new InstructionScreen(this))), 300, 340);
         
         AvatarManager avatarManager = new AvatarManager();
@@ -24,6 +27,7 @@ public class MenuScreen extends World
         addObject(new Button(() -> goHighScores()), 300, 275);
         highScoreButtonLabel = new Label("View High Scores", 18);
         addObject(highScoreButtonLabel, 300, 240);
+
     }
     
     public void goHighScores()
