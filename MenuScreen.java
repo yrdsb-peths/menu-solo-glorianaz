@@ -15,9 +15,9 @@ public class MenuScreen extends World
     {
         super(600, 400, 1);
 
-        instructionLabel = new Label("View Instructions", 300, 18);
-        addObject(instructionLabel, 300, 320);
-        addObject(new Button(() -> Greenfoot.setWorld(new InstructionScreen(this))), 300, 340);
+        instructionLabel = new Label("View Instructions", 18);
+        addObject(instructionLabel, 300, 310);
+        addObject(new Button(() -> Greenfoot.setWorld(new InstructionScreen(this))), 300, 345);
         
         AvatarManager avatarManager = new AvatarManager();
         addObject(avatarManager,300, 100); 
