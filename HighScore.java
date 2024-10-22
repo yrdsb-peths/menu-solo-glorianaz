@@ -24,6 +24,9 @@ public class HighScore extends World
         super(600, 400, 1); 
         this.previousScreen = previousScreen;
         
+        Label score = new Label("High Scores!",50);
+        addObject(score, 300, 90);
+        
         // highscore map with 3 names
         highScores = new HashMap<>();
         highScores.put("Mr.Chan", 2900);
@@ -35,7 +38,7 @@ public class HighScore extends World
     }
     
     private void addScores(){
-        int y = 100;
+        int y = 150;
         
         for (Map.Entry<String, Integer> entry : highScores.entrySet()) 
         {
@@ -48,12 +51,12 @@ public class HighScore extends World
 
     public void returnButton()
     {
-        addObject(new Button() -> return()), 100, 300);
+        addObject(new Button(()-> back()), 300, 350);
         Label returnButtonLabel = new Label("Return to menu", 20);
-        addObject(returnButtonLabelButtonLabel, 100, 338);
+        addObject(returnButtonLabel, 300, 385);
     }
 
-    public void return()
+    public void back()
     {
         Greenfoot.setWorld(previousScreen);
     }
