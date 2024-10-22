@@ -31,6 +31,7 @@ public class HighScore extends World
         highScores.put("Andrew", 1000);
         
         addScores();
+        returnButton();
     }
     
     private void addScores(){
@@ -43,5 +44,17 @@ public class HighScore extends World
           addObject(scoreLabel, 300, y);
           y+= 50;
         }
+    }
+
+    public void returnButton()
+    {
+        addObject(new Button() -> return()), 100, 300);
+        Label returnButtonLabel = new Label("Return to menu", 20);
+        addObject(returnButtonLabelButtonLabel, 100, 338);
+    }
+
+    public void return()
+    {
+        Greenfoot.setWorld(previousScreen);
     }
 }
